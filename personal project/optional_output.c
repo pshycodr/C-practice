@@ -7,11 +7,11 @@ int main()
     a = 1;
     printf("Enter any number : ");
     scanf("%d", &num);
-     printf("\n");
+    printf("\n");
     int opt;
     printf("1. Multiplication Table\n");
     printf("2. Power of that number\n");
-    // printf("wlii be added soon...\n");
+    printf("3. factorial\n");
     // printf("wlii be added soon...\n");
     printf("\n");
     printf("Chose an option : ");
@@ -38,6 +38,15 @@ int main()
             }
             break;
         }
+        break;
+    case 3:
+
+        for (int i3 = 1; i3 <= num; i3++)
+        {
+            a *= i3;
+        }
+        printf("factorial of %d is: %d ", num, a);
+        break;
 
     default:
         break;

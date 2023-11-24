@@ -23,6 +23,7 @@ int amin(int num[], int a) {
 }
 
 #include <stdio.h>
+#include <conio.h>
 
 
 int main() {
@@ -37,6 +38,6 @@ int main() {
 
     printf("Max: %d\n", amax(num, a));
     printf("Min: %d\n", amin(num, a));
-
+    getch();
     return 0;
 }

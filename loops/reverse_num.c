@@ -9,13 +9,12 @@ int main()
     printf("enter a number : ");
     scanf("%d", &num);
 
-    int i = 0;
     while (num > 0)
     {
         reverse *= 10;
         reverse += (num % 10);
 
-        num /= 10;3
+        num /= 10;
     }
     printf("the reverse number is : %d", reverse);
 
