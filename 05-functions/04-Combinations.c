@@ -8,8 +8,16 @@ int factorial(int num) {
     return result;
 }
 
+int combination(int n, int r){
+    return factorial(n) / (factorial(r) * factorial(n - r));
+}
+
+int permutation(int n, int r){
+    return  factorial(n) / factorial(n - r);
+}
+
 int main() {
-    int n, r, combination, permutation;
+    int n, r;
 
     printf("Enter the value of n and r: ");
     scanf("%d %d", &n, &r);
@@ -19,11 +27,11 @@ int main() {
         return 1;
     }
 
-    combination = factorial(n) / (factorial(r) * factorial(n - r));
-    permutation = factorial(n) / factorial(n - r);
+    
+    
 
-    printf("Combination (C(%d, %d)) = %d\n", n, r, combination);
-    printf("Permutation (P(%d, %d)) = %d\n", n, r, permutation);
+    printf("Combination (C(%d, %d)) = %d\n", n, r, combination(n,r));
+    printf("Permutation (P(%d, %d)) = %d\n", n, r, permutation(n,r));
 
     return 0;
 }
