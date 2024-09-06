@@ -1,0 +1,86 @@
+Notes on Strings in C
+
+Introduction
+- Strings are crucial in C programming, representing sequences of characters. Understanding how they work is essential for effective programming in C.
+
+Revisiting Arrays
+- Strings in C are a type of array where each element is a character.
+- Arrays are foundational structures in C, and character arrays specifically handle text data.
+
+What are Strings?
+- Strings are arrays of characters terminated by a NULL character (`\0`).
+- They allow us to store and manipulate text.
+
+Address of Character Array Elements
+- Each character in a string has an address, and these addresses are sequential in memory.
+- For example, if `str` is a character array, `str[0]` is at the base address, `str[1]` is at the next address, and so on.
+
+ASCII Values Revision
+- Characters are represented by ASCII values. For instance, 'A' is 65, 'a' is 97.
+- Knowing ASCII values helps in understanding how characters are stored and compared.
+
+Creating Character Arrays
+- You can declare a character array with a specified size: `char arrayName[size];`
+- For example, `char name[50];` creates an array that can store up to 49 characters plus the NULL terminator.
+
+NULL Character ‘\0’
+- The NULL character (`\0`) signifies the end of a string.
+- It's crucial for functions to determine where the string ends, preventing errors and undefined behavior.
+
+String Initialization Without Individual Characters
+- Strings can be initialized with string literals: `char str[] = "Hello";`
+- The compiler automatically adds the NULL terminator, so you don't need to do it manually.
+
+Actual Size of String
+- The size of a character array includes space for the NULL terminator.
+- For example, `char str[6] = "Hello";` allocates space for 5 characters and the NULL terminator.
+
+Accessing and Modifying Individual Characters
+- Characters in a string can be accessed and modified using indexing.
+- Example: `str[0] = 'h';` changes "Hello" to "hello".
+
+Different Ways of Printing Particular Element
+- Use `printf` with format specifiers to print specific characters.
+- Example: `printf("Character at index 1: %c\n", str[1]);` prints the character at index 1.
+
+`puts()` and `gets()` and `%[^\n]s`
+- `puts()`: Prints a string followed by a newline.
+- `gets()`: Reads a string from stdin (note: deprecated due to security issues).
+- `%[^\n]s` in `scanf` reads input until a newline is encountered, useful for handling strings with spaces.
+
+Reverse a String
+- To reverse a string, use a loop to swap characters from the start and end moving towards the center.
+- Example algorithm involves using a temporary variable for swapping.
+
+Declaring String Without Size
+- When declaring a string with an initializer, you don't need to specify the size.
+- Example: `char str[] = "Hello";` lets the compiler set the size based on the string length.
+
+Character Pointers as Strings
+- Strings can also be managed using character pointers: `char *ptr = "Hello";`
+- Character pointers point to string literals, which are read-only.
+
+Shallow and Deep Copy
+- Shallow Copy: Copies pointers, not the actual content.
+- Deep Copy: Copies the content of the string to new memory.
+- Example: Use `strcpy()` for deep copying.
+
+Built-in Functions of String
+- C provides several built-in functions to handle strings, such as `strlen()`, `strcpy()`, and `strcat()`.
+
+`strlen()` Function
+- `strlen()` calculates the length of a string (excluding the NULL terminator).
+- Example: `strlen("Hello")` returns 5.
+
+`strcpy()` Function
+- `strcpy()` copies one string into another.
+- Example: `strcpy(dest, src);` copies `src` into `dest`.
+
+`strcat()` Function
+- `strcat()` appends one string to the end of another.
+- Example: `strcat(dest, src);` appends `src` to the end of `dest`.
+
+Insert a New Character at a Position in String
+- To insert a character at a specific index, shift the subsequent characters and place the new character in the desired position.
+- Example implementation involves using loops to adjust positions.
+

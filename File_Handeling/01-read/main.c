@@ -1,16 +1,19 @@
 #include <stdio.h>
-int main(){
+int main()
+{
 
     FILE *file = fopen("a.txt", "r");
 
-        if (file == NULL) {
+    if (file == NULL)
+    {
         perror("Error opening file");
         return 1;
     }
 
     char ch;
     // Read the file one character at a time and print it
-    while ((ch = fgetc(file)) != EOF) {
+    while ((ch = fgetc(file)) != EOF)
+    {
         putchar(ch);
     }
 
