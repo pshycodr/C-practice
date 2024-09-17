@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#define KRED "\x1B[31m"
+#define KGRN "\x1B[32m"
+#define RESET "\x1B[0m"
 
 char Board[3][3] = {
     {'1', '2', '3'},
@@ -12,12 +17,21 @@ void DisplayBoard()
 {
     for (int i = 0; i < 3; i++)
     {
-        printf(" %c | %c | %c \n", Board[i][0], Board[i][1], Board[i][2]);
+        for (int j = 0; j < 3; j++)
+        {
+            if (Board[i][j] == 'X')
+                printf(" %s%c%s |", KRED, Board[i][j], RESET);
+            else if (Board[i][j] == 'O')
+                printf(" %s%c%s |", KGRN, Board[i][j], RESET);
+            else
+                printf(" %c |", Board[i][j]);
+        }
         if (i < 2)
         {
-            printf("---|---|---\n");
+            printf("\n---|---|---\n");
         }
     }
+    printf("\n");
 }
 
 void MarkBoard(char mark)
@@ -82,13 +96,14 @@ int main()
 
     while (status == -1)
     {
+        system("cls");
         DisplayBoard();
 
         player = (player % 2) ? 1 : 2;
 
-        printf("%d Enter Your Choice: ", player);
+        printf("Player %d Enter Your Choice: ", player);
         scanf("%d", &choice);
-
+        printf("\n");
         mark = (player % 2) ? 'X' : 'O';
         MarkBoard(mark);
 
@@ -96,15 +111,16 @@ int main()
         player++;
     }
 
+    system("cls");
     DisplayBoard();
 
     if (status == 1)
     {
-        printf("Player %d wins!!", --player);
+        printf("Player %d wins!!\n", --player);
     }
     else
     {
-        printf("Its a Draw");
+        printf("It's a Draw!\n");
     }
 
     return 0;
